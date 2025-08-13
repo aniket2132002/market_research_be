@@ -166,6 +166,7 @@ def get_company_info(company_name: str) -> str:
                 headers = {"User-Agent": "Mozilla/5.0"}
                 resp = requests.get(url, params=params, headers=headers, timeout=6)
                 if resp.status_code == 200:
+                    print(f"Yahoo Finance search response: {resp.text[:1000]}")  # Debugging output
                     data = resp.json()
                     for q in data.get("quotes", []):
                         symbol = q.get("symbol")
@@ -173,7 +174,7 @@ def get_company_info(company_name: str) -> str:
                         if symbol and quote_type in ("EQUITY", "ETF", "MUTUALFUND"):
                             return symbol
             except Exception:
-                return None
+                return "yahoo not called"
             return None
 
         candidates = []
