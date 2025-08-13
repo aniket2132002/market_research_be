@@ -1,0 +1,8 @@
+google-generativeai
+python-dotenv
+python-dateutil
+feedparser
+yfinance
+requests
+wikipedia
+wptools
